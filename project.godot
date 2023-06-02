@@ -11,10 +11,11 @@ config_version=5
 [application]
 
 config/name="mecha-spider"
+run/main_scene="res://scenes/DeveloperScene.tscn"
 config/features=PackedStringArray("4.0", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [rendering]
 
-renderer/rendering_method="gl_compatibility"
+renderer/rendering_method="mobile"
 renderer/rendering_method.mobile="gl_compatibility"

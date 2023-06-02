@@ -1,0 +1,87 @@
+[gd_scene load_steps=8 format=3 uid="uid://qfm6htwocpfq"]
+
+[ext_resource type="Texture2D" uid="uid://cm0bemtd7juia" path="res://addons/kenney_prototype_textures/dark/texture_01.png" id="1_cwyje"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ynba5"]
+size = Vector3(60, 2, 30)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_imdue"]
+albedo_texture = ExtResource("1_cwyje")
+uv1_scale = Vector3(24, 8, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_nm02h"]
+material = SubResource("StandardMaterial3D_imdue")
+size = Vector3(60, 2, 30)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rrtgr"]
+size = Vector3(2, 20, 30)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pkym6"]
+albedo_texture = ExtResource("1_cwyje")
+uv1_scale = Vector3(12, 6, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_tkysn"]
+material = SubResource("StandardMaterial3D_pkym6")
+size = Vector3(2, 20, 30)
+
+[node name="Room" type="Node3D"]
+
+[node name="Floor" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 15)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("BoxShape3D_ynba5")
+metadata/_edit_lock_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("BoxMesh_nm02h")
+metadata/_edit_lock_ = true
+
+[node name="Wall" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29, 8, 15)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall"]
+shape = SubResource("BoxShape3D_rrtgr")
+metadata/_edit_lock_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall"]
+mesh = SubResource("BoxMesh_tkysn")
+metadata/_edit_lock_ = true
+
+[node name="Wall2" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15, 8, 1)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall2"]
+shape = SubResource("BoxShape3D_rrtgr")
+metadata/_edit_lock_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall2"]
+mesh = SubResource("BoxMesh_tkysn")
+metadata/_edit_lock_ = true
+
+[node name="Wall3" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29, 8, 15)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall3"]
+shape = SubResource("BoxShape3D_rrtgr")
+metadata/_edit_lock_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall3"]
+mesh = SubResource("BoxMesh_tkysn")
+metadata/_edit_lock_ = true
+
+[node name="Wall4" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15, 8, 1)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall4"]
+shape = SubResource("BoxShape3D_rrtgr")
+metadata/_edit_lock_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall4"]
+mesh = SubResource("BoxMesh_tkysn")
+metadata/_edit_lock_ = true
