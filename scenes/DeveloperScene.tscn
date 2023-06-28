@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://bh6gjlqcq16ru"]
+[gd_scene load_steps=5 format=3 uid="uid://bh6gjlqcq16ru"]
 
 [ext_resource type="PackedScene" uid="uid://qfm6htwocpfq" path="res://scenes/TestRoom.tscn" id="1_ab5lp"]
+[ext_resource type="Script" path="res://scripts/CharacterControls.gd" id="2_8eweq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mev2k"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_0womg"]
 
 [node name="DeveloperScene" type="Node3D"]
 
@@ -9,9 +14,20 @@ transform = Transform3D(-0.583495, 0.733654, -0.348262, -0.0134837, 0.420021, 0.
 shadow_enabled = true
 
 [node name="CameraPivot" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.842829, 0.538183, 0, -0.538183, 0.842829, 0, 0, 14.4108)
+transform = Transform3D(1, 0, 0, 0, 0.965927, 0.258819, 0, -0.258819, 0.965926, 0, 8, 20)
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.83441, 29.8822)
 
 [node name="TestRoom" parent="." instance=ExtResource("1_ab5lp")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 0, 0, 0)
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 25)
+script = ExtResource("2_8eweq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("BoxShape3D_mev2k")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
+mesh = SubResource("BoxMesh_0womg")
